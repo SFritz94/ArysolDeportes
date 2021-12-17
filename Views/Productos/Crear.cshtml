@@ -1,0 +1,29 @@
+@model Producto;
+
+<h1>Agrega el producto que desees</h1>
+
+@await Html.PartialAsync("_FormProduct", Model)
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 mt-5">
+            <button type="button" class="btn btn-light">@Html.ActionLink("Volver","Index", new {campoOrden = @ViewBag.orden, campoBusqueda = @ViewBag.busqueda, pagina = @ViewBag.pagina})</button>
+        </div>
+        <div class="col-sm-12 col-md-6 mt-5">
+            <button type="button" class="btn btn-light">@Html.ActionLink("Agregar un producto eliminado","AltaProductoEliminado", new {campoOrden = @ViewBag.orden, campoBusqueda = @ViewBag.busqueda, pagina = @ViewBag.pagina})</button>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        //selector por id
+        //$('#Codigo')
+        //selector por clase
+        $('.custom-file-input').on('change', function(){
+            var nombreArchivo=$(this).val().split("\\").pop();
+            $(this).next('.custom-file-label').html(nombreArchivo);
+        });
+
+    </script>
+}

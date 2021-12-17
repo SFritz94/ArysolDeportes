@@ -1,0 +1,27 @@
+@model Producto;
+@if(@ViewBag.altaProdElim == "prodElim"){
+    <h1>Editando producto eliminado con id @Model.id</h1>
+}else{
+    <h1>Editando producto con id @Model.id</h1>
+}
+
+@await Html.PartialAsync("_FormProduct", Model)
+
+@if(@ViewBag.altaProdElim == "prodElim"){
+    <button type="button" class="btn btn-light" style="margin-bottom: 10px;">@Html.ActionLink("Volver","AltaProductoEliminado", new {id = @Model.id, campoOrden = @ViewBag.orden, campoBusqueda = @ViewBag.busqueda, pagina = @ViewBag.pagina})</button>
+}else{
+    <button type="button" class="btn btn-light" style="margin-bottom: 10px;">@Html.ActionLink("Volver","DetalleProducto", new {id = @Model.id, campoOrden = @ViewBag.orden, campoBusqueda = @ViewBag.busqueda, pagina = @ViewBag.pagina})</button>
+}
+
+@section scripts{
+    <script>
+        //selector por id
+        //$('#Codigo')
+        //selector por clase
+        $('.custom-file-input').on('change', function(){
+            var nombreArchivo=$(this).val().split("\\").pop();
+            $(this).next('.custom-file-label').html(nombreArchivo);
+        });
+
+    </script>
+}

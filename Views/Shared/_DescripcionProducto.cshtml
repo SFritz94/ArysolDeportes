@@ -1,0 +1,20 @@
+@using ArysolDeportes_SantiagoFritz.Models;
+@model Producto
+
+@functions{
+    string Detalle(Producto producto){
+        <h2 class="letraBlanca">Descripción: </h2>
+        <p class="letraBlanca etiquetaPEnDescripcion">@producto.descripcion</p>
+        <p class="letraBlanca">$@producto.precio</p>
+        <p class="letraBlanca">Cantidad disponible: @producto.stock</p>
+        <p class="letraBlanca">Categoria: @producto.categoria.nombreCategoria</p>
+        return string.Empty;
+    }
+}
+
+@Detalle(@Model)
+<div class="botonesProductos">
+    <button type="button" class="btn btn-primary botonComprar" style="margin-bottom: 10px;">Comprar?</button>
+    <button type="button" class="btn btn-light" style="margin-bottom: 10px;">@Html.ActionLink("Editar","Editar", new {id = @Model.id, campoOrden = @ViewBag.orden, campoBusqueda = @ViewBag.busqueda, pagina = @ViewBag.pagina})</button>
+    <button type="button" class="btn btn-light" style="margin-bottom: 10px;">@Html.ActionLink("Eliminar producto","Eliminar", new {id = @Model.id})</button>
+</div>

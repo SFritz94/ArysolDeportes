@@ -1,0 +1,66 @@
+@using ArysolDeportes_SantiagoFritz.Models;
+@model Producto;
+
+@functions{
+    string MostrarImagenes(Producto producto){
+        <h2 class="labelImagen">@Html.LabelFor(prod => prod.imagenes)</h2>
+        @for (int i = 0; i<producto.imagenes.Count; i++)
+            {
+                @Html.TextBoxFor(prod => prod.imagenes[i].contenido, new {@class="form-control marginTop"})
+            }
+    return string.Empty;    
+    }
+}
+
+@using (@Html.BeginForm(null, null, FormMethod.Post, new {enctype="multipart/form-data", prodElim = @ViewBag.altaProdElim})){
+<section>
+    <div class="row">
+        <div class="col-md-6">
+            @if(Model != null){
+                @await Html.PartialAsync("_Carousel", Model);
+                <div class="form-group">
+                    @MostrarImagenes(Model)
+                </div>
+            }
+            <div class="form-group">
+                @if(Model == null){
+                    <h2 class="labelImagen">@Html.Label("Imagenes")</h2>
+                }
+                <div class="custom-file">
+                    @Html.TextBoxFor(x=>x.listaImagenes, new  { type="file", multiple = "multiple", @class="form-control marginTop custom-file-input" })
+                    @Html.LabelFor(x=>x.listaImagenes,"Subir imagenes", new  { @class="custom-file-label marginTop" })
+                    @Html.ValidationMessageFor(model => model.imagenes, "", new{@class = "color: black;"})
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <h2>@Html.LabelFor(prod => prod.nombre)</h2>
+                @Html.TextBoxFor(prod => prod.nombre, new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.nombre, "", new{@class = "color: black;"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(prod => prod.descripcion)
+                @Html.TextAreaFor(prod => prod.descripcion, new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.descripcion, "", new{@class = "color: black;"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(prod => prod.precio)
+                @Html.TextBoxFor(prod => prod.precio, new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.precio, "", new{@class = "color: black;"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(prod => prod.stock)
+                @Html.TextBoxFor(prod => prod.stock, new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.stock, "", new{@class = "color: black;"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(prod => prod.categoria)
+                @Html.DropDownListFor(prod => prod.categoria.idCategoria, ViewBag.categorias as SelectList, "--Seleccionar categoria--", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.categoria.idCategoria, "Por favor ingrese una categoria.", new{@class = "color: black;"})
+            </div>
+            <input type="submit" class="btn btn-primary" value="Guardar">
+        </div>
+    </div>
+</section>
+}

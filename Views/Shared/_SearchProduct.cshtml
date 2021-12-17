@@ -1,0 +1,10 @@
+@using (Html.BeginForm())
+{
+     <div class="letraBlanca marginTop">
+         Busca un producto por su nombre, precio o categoria: 
+         <div class="marginTop">
+            @Html.TextBox("campoBusqueda")
+             <input type="submit" value="Buscar" class="btn btn-light" />
+         </div>
+     </div>
+}

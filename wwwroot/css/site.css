@@ -1,0 +1,185 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+/*Estilos propios
+-----------------------------------------------------*/
+body{
+  background-image: linear-gradient(355deg, #ffee58 0, #fff358 6.25%, #f4f65b 12.5%, #ddf55f 18.75%, #c4f265 25%, #a9ec6c 31.25%, #8de372 37.5%, #6fd877 43.75%, #4fca7a 50%, #29bc7c 56.25%, #00af7f 62.5%, #00a482 68.75%, #009c85 75%, #00958a 81.25%, #00908f 87.5%, #008c96 93.75%, #008b9e 100%);
+}
+a{
+  color: black;
+}
+label{
+  color: white;
+}
+.etiquetaPEnDescripcion{
+  width: 260px;
+}
+.letraBlanca{
+  color: white;
+}
+.botonAgregar{
+  width: 166px;
+  height: 40px;
+}
+.botonesProductos{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.labelImagen{
+  margin: 1% 0%;
+}
+.imagenCard {
+  height: 19rem; 
+}
+.imagenDetalle{
+  height: 40rem;
+}
+.card {
+  width: 23rem;
+  display: inline-block;
+  margin: 20px;
+  border: 1px solid black;
+}
+.centrarTextoCards{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.cardsContainer{
+  display: flex;
+  flex-wrap: wrap;
+}
+.container{
+  max-width: 1300px;
+}
+.logoNav{
+  width: 200px;
+  height: 85px;
+}
+.logoHome{
+  width: 1000px;
+  height: 350px;
+}
+.contacto{
+  display: flex;
+  justify-content: space-between;
+}
+footer div img{
+  margin-left: 10px;
+}
+.marginTop{
+  margin-top: 10px;
+}
+body h1{
+  color: white;
+}
+body h2{
+  color: white;
+}
+footer strong{
+  color: black;
+}
+li strong{
+  color: white;
+}
+li a{
+  color: white;
+}
+.field-validation-valid{
+  display: none;
+}
+textarea.form-control{
+  height: 120px;
+}
+.liOrden{
+  list-style: none;
+  margin-right: 10px;
+}
+.ulOrden{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+  padding-left: 0px;
+}
+.displayFlex{
+  display: flex;
+}
+.agregarProductoElim{
+  display: flex;
+  justify-content: space-between;
+  width: 51.5vw;
+}
+.page-link{
+  color: black !important;
+}

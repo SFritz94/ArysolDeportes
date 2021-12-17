@@ -1,0 +1,21 @@
+@functions{
+    string Ordenador(String condicion){
+        @if(condicion == "prodElim"){
+            <li class="liOrden">@Html.ActionLink("Nombre","AltaProductoEliminado", new {campoOrden = "nombre", campoBusqueda = @ViewBag.busqueda, pagina = @ViewBag.pagina})</li>
+            <li class="liOrden">@Html.ActionLink("Menor precio","AltaProductoEliminado", new {campoOrden = "menorPrecio", campoBusqueda = @ViewBag.busqueda, pagina = @ViewBag.pagina})</li>
+            <li class="liOrden">@Html.ActionLink("Mayor precio","AltaProductoEliminado", new {campoOrden = "mayorPrecio", campoBusqueda = @ViewBag.busqueda, pagina = @ViewBag.pagina})</li>
+        }else{
+            <li class="liOrden">@Html.ActionLink("Nombre","Index", new {campoOrden = "nombre", campoBusqueda = @ViewBag.busqueda, pagina = @ViewBag.pagina})</li>
+            <li class="liOrden">@Html.ActionLink("Menor precio","Index", new {campoOrden = "menorPrecio", campoBusqueda = @ViewBag.busqueda, pagina = @ViewBag.pagina})</li>
+            <li class="liOrden">@Html.ActionLink("Mayor precio","Index", new {campoOrden = "mayorPrecio", campoBusqueda = @ViewBag.busqueda, pagina = @ViewBag.pagina})</li>
+        }
+        return string.Empty;
+    }
+}
+
+<div>
+    <h2>Ordenar por:</h2>
+    <ul class="ulOrden">
+        @Ordenador(ViewBag.altaProdElim)
+    </ul>
+</div>

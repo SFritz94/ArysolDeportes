@@ -1,0 +1,38 @@
+@model Paginador
+
+@{@*Primero calculamos la cantidad total de paginas que habra.*@ 
+    var cantidadPaginas = (int)Math.Ceiling((double)Model.TotalDeProductos / Model.ProductosPorPagina);
+    if(Model.TotalDeProductos == 0){
+        cantidadPaginas = 1;
+    }
+}
+
+@{
+    int inicial = 1;
+    var radio = 2;//Muestra un total de 2 paginas mas del lado izquierdo y derecho de la pagina donde nos encontremos.
+    var cantidadMaximaDePaginas = radio * 2 +1;
+    int final = (cantidadPaginas > cantidadMaximaDePaginas) ? cantidadMaximaDePaginas : cantidadPaginas;
+    if(Model.PaginaActual > radio +1){
+        inicial = Model.PaginaActual - radio;
+        if(cantidadPaginas > Model.PaginaActual + radio){
+            final = Model.PaginaActual + radio;
+        }
+        else{
+            final = cantidadPaginas;
+        }
+    }
+}
+@*Colocamos la primera pagina en la lista desordenada. Luego realizamos un for donde recorre desde la primera pagina
+segun la variable de radio. En la pagina donde te encuentras se marca como activo. Colocamos la ultima pagina al final.*@
+<ul class="pagination">
+    <li class="page-item">@Html.ActionLink("Primera", null, new {campoOrden = @ViewBag.orden, campoBusqueda = @ViewBag.busqueda, pagina = 1}, new {@class="page-link"})</li>
+    @for(int i = inicial; i <= final; i++){
+        if(i == Model.PaginaActual){
+            <li class="page-item active">@Html.ActionLink(i.ToString(), null, new {campoOrden = @ViewBag.orden, campoBusqueda = @ViewBag.busqueda, pagina = i}, new {@class="page-link"})</li>
+        }
+        else{
+            <li class="page-item">@Html.ActionLink(i.ToString(), null, new {campoOrden = @ViewBag.orden, campoBusqueda = @ViewBag.busqueda, pagina = i}, new {@class="page-link"})</li>
+        }
+    }
+    <li class="page-item">@Html.ActionLink("Ultima", null, new {campoOrden = @ViewBag.orden, campoBusqueda = @ViewBag.busqueda, pagina = cantidadPaginas}, new {@class="page-link"})</li>
+</ul>

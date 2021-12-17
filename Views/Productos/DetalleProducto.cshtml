@@ -1,0 +1,14 @@
+@model Producto;
+
+<section>
+    <h1>@Model.nombre</h1>
+    <div class="row">
+        <div class="col-md-6">
+            @await Html.PartialAsync("_Carousel", Model)
+            <button type="button" class="btn btn-light" style="margin-top: 5%;">@Html.ActionLink("Volver","Index", new {campoOrden = @ViewBag.orden, campoBusqueda = @ViewBag.busqueda, pagina = @ViewBag.pagina})</button>
+        </div>
+        <div class="col-md-4">
+            @await Html.PartialAsync("_DescripcionProducto", Model)
+        </div>
+    </div>
+</section>

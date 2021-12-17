@@ -1,0 +1,30 @@
+@using ArysolDeportes_SantiagoFritz.Models;
+@model IndexViewModel
+
+<div class="container-fluid">
+    <div class="row align-items-center mb-5">
+        <div class="col-md-12 col-lg-4">
+            @await Html.PartialAsync("_OrderProduct")
+        </div>
+        <div class="col-md-12 col-lg-4">
+            @await Html.PartialAsync("_SearchProduct")
+        </div>
+        <div class="col-md-12 col-lg-4 row justify-content-around">
+            <button type="button" class="btn btn-light marginTop botonAgregar">@Html.ActionLink("Agregar producto","Crear", new {campoOrden = @ViewBag.orden, campoBusqueda = @ViewBag.busqueda, pagina = @ViewBag.pagina})</button>
+        </div>
+    </div>
+</div>
+
+<section class="cardsContainer">
+    @foreach (var producto in Model.Productos)
+    {
+        <div class="card">
+            @await Html.PartialAsync("_Carousel", producto)
+            @await Html.PartialAsync("_CardBody", producto)
+        </div>
+    }
+</section>
+
+<div class="container-fluid">
+    @await Html.PartialAsync("_Paginador", Model)@*Llamamos al controlador de las paginas*@
+</div>
